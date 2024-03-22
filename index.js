@@ -1,11 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose')
+const bodyParser = require("body-parser");
 
 
 var userRoutes = require('./Routes/user');
 
 const app = express();
 const port = 3000;
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+
 
 mongoose.connect('mongodb+srv://harshasagar1506:Iglulabs.com@cluster0.dqwzw16.mongodb.net/?retryWrites=true&w=majority')
 
